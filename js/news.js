@@ -25,6 +25,7 @@ const displaycatagories = catagories => {
 }
 
 const allnews = allnews => {
+
     const url = `https://openapi.programming-hero.com/api/news/category/${allnews}`
     // console.log(url);
     fetch(url)
@@ -38,6 +39,7 @@ const allnews = allnews => {
 
 const displayallnews = newsall => {
     console.log(newsall)
+
     const allnewsdiv = document.getElementById('all-news')
     allnewsdiv.innerHTML = ``;
     //no data found
@@ -102,9 +104,56 @@ const displayallnews = newsall => {
 
         troggol(false)
 
+
     });
 
 
+}
+const getans = () => {
+    const getdiv = document.getElementById('q&n')
+    getdiv.innerHTML = ``;
+
+    const getnwdiv = document.createElement('div')
+    getnwdiv.innerHTML = `
+    
+  <div>
+  <h1 class="text-center fw-bold">QUESTION AND ANSWER<h1>
+  <hr>
+  <hr>
+  </div>
+
+  <div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:1</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:Difference Between VAR,LET & CONST<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:JavaScript has three variable declaration statements: var, let and const. The latter two were added in ES6, whereas var existed since previous versions. One of the first things to notice is that const defines constants (i.e. values that will not be reassigned), whereas var and let define variables. Yet, var behaves differently from both let and const in various other ways.<p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:2</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:Array Function vs  Regular Function<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:Arrow function — also called fat arrow function— is a new feature introduced in ES6 that is a more concise syntax for writing function expressions. While both regular JavaScript functions and arrow functions work in a similar manner, there are certain differences between them.<p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:3</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:Map ,Foreach,Filter,Find<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<br>Map:map() creates a new array from calling a function for every array element. map() calls a function once for each element in an array. map() does not execute the function for empty elements. map() does not change the original array.<br><br>Foreach:The JavaScript forEach method is one of the several ways to loop through arrays. Each method has different features, and it is up to you, depending on what you're doing, to decide which one to use. <br><br>Filter:The filter() method creates a new array filled with elements that pass a test provided by a function. The filter() method does not execute the function for empty elements. The filter() method does not change the original array.<br><br>Find:The find method executes the callbackFn function once for each index of the array until the callbackFn returns a truthy value. If so, find immediately returns the value of that element. Otherwise, find returns undefined. <br><p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:4</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:What Is Template String In JS?<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements<p>
+    </div>
+
+  
+  
+  </div>
+
+    
+    
+    
+    `
+    getdiv.appendChild(getnwdiv)
+    troggol(false)
 }
 
 
@@ -160,50 +209,7 @@ const troggol = isLoading => {
     }
 }
 
-const getans = answer => {
-    const getdiv = document.getElementById('q&n')
-    const getnwdiv = document.createElement('div')
-    getnwdiv.innerHTML = `
-    
-  <div>
-  <h1 class="text-center fw-bold">QUESTION AND ANSWER<h1>
-  <hr>
-  <hr>
-  </div>
 
-  <div>
-    <div class="border border-5 rounded mb-5">
-    <h4 class="fw-bold fs-2 text-danger">Question NO:1</h4>
-    <p class="fw-semibold fs-3 text-dark">Question:Difference Between VAR,LET & CONST<p>
-    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:JavaScript has three variable declaration statements: var, let and const. The latter two were added in ES6, whereas var existed since previous versions. One of the first things to notice is that const defines constants (i.e. values that will not be reassigned), whereas var and let define variables. Yet, var behaves differently from both let and const in various other ways.<p>
-    </div>
-    <div class="border border-5 rounded mb-5">
-    <h4 class="fw-bold fs-2 text-danger">Question NO:2</h4>
-    <p class="fw-semibold fs-3 text-dark">Question:<p>
-    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
-    </div>
-    <div class="border border-5 rounded mb-5">
-    <h4 class="fw-bold fs-2 text-danger">Question NO:3</h4>
-    <p class="fw-semibold fs-3 text-dark">Question:<p>
-    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
-    </div>
-    <div class="border border-5 rounded mb-5">
-    <h4 class="fw-bold fs-2 text-danger">Question NO:4</h4>
-    <p class="fw-semibold fs-3 text-dark">Question:<p>
-    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
-    </div>
-
-  
-  
-  </div>
-
-    
-    
-    
-    `
-    getdiv.appendChild(getnwdiv)
-    troggol(false)
-}
 
 
 
