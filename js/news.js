@@ -40,10 +40,21 @@ const displayallnews = newsall => {
     console.log(newsall)
     const allnewsdiv = document.getElementById('all-news')
     allnewsdiv.innerHTML = ``;
+    //no data found
+    const notdatadiv = document.getElementById('nodata')
+    if (newsall.length === 0) {
+        notdatadiv.classList.remove('d-none')
+    }
+    else {
+        notdatadiv.classList.add('d-none')
+    }
+    troggol(false)
+
 
     newsall.forEach(news => {
         const nwdiv = document.createElement('div');
         nwdiv.classList.add('card');
+
         nwdiv.innerHTML = `
 
         <div class="row g-0" onclick="getdetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -88,10 +99,18 @@ const displayallnews = newsall => {
 
     `
         allnewsdiv.appendChild(nwdiv);
+
         troggol(false)
 
     });
+
+
 }
+
+
+
+
+
 
 
 
@@ -127,6 +146,10 @@ const modaldetails = news => {
 
 }
 
+
+
+
+
 const troggol = isLoading => {
     const divspin = document.getElementById('spiner')
     if (isLoading) {
@@ -137,12 +160,55 @@ const troggol = isLoading => {
     }
 }
 
+const getans = answer => {
+    const getdiv = document.getElementById('q&n')
+    const getnwdiv = document.createElement('div')
+    getnwdiv.innerHTML = `
+    
+  <div>
+  <h1 class="text-center fw-bold">QUESTION AND ANSWER<h1>
+  <hr>
+  <hr>
+  </div>
+
+  <div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:1</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:Difference Between VAR,LET & CONST<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:JavaScript has three variable declaration statements: var, let and const. The latter two were added in ES6, whereas var existed since previous versions. One of the first things to notice is that const defines constants (i.e. values that will not be reassigned), whereas var and let define variables. Yet, var behaves differently from both let and const in various other ways.<p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:2</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:3</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
+    </div>
+    <div class="border border-5 rounded mb-5">
+    <h4 class="fw-bold fs-2 text-danger">Question NO:4</h4>
+    <p class="fw-semibold fs-3 text-dark">Question:<p>
+    <p class="text-dark fw-semibold bg-warning bg-gradient">Answer:<p>
+    </div>
+
+  
+  
+  </div>
+
+    
+    
+    
+    `
+    getdiv.appendChild(getnwdiv)
+    troggol(false)
+}
 
 
 
 
+allcatagories();
 
-allcatagories('');
-;
 
 
